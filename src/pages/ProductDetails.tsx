@@ -13,7 +13,7 @@ export default function ProductDetails() {
       <main className="flex-1 overflow-y-auto">
         <div className="relative w-full aspect-square bg-white dark:bg-slate-900 overflow-hidden">
           <div className="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar h-full">
-            <div className="snap-center shrink-0 w-full h-full bg-center bg-cover" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1584225065152-4a145afaa3cc?q=80&w=800&auto=format&fit=crop')" }}></div>
+            <div className="snap-center shrink-0 w-full h-full bg-center bg-cover" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?q=80&w=800&auto=format&fit=crop')" }}></div>
             <div className="snap-center shrink-0 w-full h-full bg-center bg-cover" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1569529465841-dfecdab7503b?q=80&w=800&auto=format&fit=crop')" }}></div>
             <div className="snap-center shrink-0 w-full h-full bg-center bg-cover" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1596460107916-430662021049?q=80&w=800&auto=format&fit=crop')" }}></div>
           </div>
@@ -89,7 +89,7 @@ export default function ProductDetails() {
             <p className="text-sm leading-relaxed text-slate-700 dark:text-slate-300">
               茅台酒独产于中国贵州省遵义市仁怀市茅台镇，是与苏格兰威士忌、法国科涅克白兰地齐名的世界三大蒸馏名酒之一，是大曲酱香型白酒的鼻祖，更是中国的国酒。
             </p>
-            <div className="w-full aspect-[4/3] rounded-lg overflow-hidden bg-slate-100 dark:bg-slate-800" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1584225065152-4a145afaa3cc?q=80&w=800&auto=format&fit=crop')" }}></div>
+            <div className="w-full aspect-[4/3] rounded-lg overflow-hidden bg-slate-100 dark:bg-slate-800" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?q=80&w=800&auto=format&fit=crop')" }}></div>
             <p className="text-sm leading-relaxed text-slate-700 dark:text-slate-300">
               其酒体微黄透明，酱香突出，幽雅细腻，酒体醇厚，回味悠长，空杯留香持久。无论是商务宴请、节日送礼还是个人收藏，都是绝佳的选择。
             </p>

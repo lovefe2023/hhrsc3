@@ -50,7 +50,7 @@ export default function Products() {
         <div className="grid grid-cols-1 gap-4">
           <Link to="/product/1" className="flex bg-white dark:bg-slate-900 rounded-xl overflow-hidden border border-slate-100 dark:border-slate-800 p-2 gap-3">
             <div className="w-32 h-32 shrink-0 bg-slate-100 dark:bg-slate-800 rounded-lg overflow-hidden relative">
-              <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1584225065152-4a145afaa3cc?q=80&w=400&auto=format&fit=crop')" }}></div>
+              <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?q=80&w=400&auto=format&fit=crop')" }}></div>
               <div className="absolute top-1 left-1 bg-primary text-white text-[10px] px-1.5 py-0.5 rounded font-bold uppercase">热销</div>
             </div>
             <div className="flex flex-col justify-between flex-1 py-1">

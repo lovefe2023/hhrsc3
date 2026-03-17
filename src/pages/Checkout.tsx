@@ -1,6 +1,20 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 export default function Checkout() {
+  const [isCouponModalOpen, setIsCouponModalOpen] = useState(false);
+  const [selectedCoupon, setSelectedCoupon] = useState<any>(null);
+
+  const coupons = [
+    { id: 1, name: '新人专享券', discount: 50, condition: '满500可用' },
+    { id: 2, name: '名酒品鉴满减券', discount: 200, condition: '满2000可用' },
+    { id: 3, name: '无门槛立减券', discount: 20, condition: '无门槛' },
+  ];
+
+  const subtotal = 3398;
+  const discount = selectedCoupon ? selectedCoupon.discount : 0;
+  const total = subtotal - discount;
+
   return (
     <div className="flex-1 flex flex-col overflow-hidden bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased relative">
       {/* Top Navigation Bar */}
@@ -43,7 +57,7 @@ export default function Checkout() {
           <div className="flex flex-col">
             {/* Item 1 */}
             <div className="flex gap-4 px-4 py-4 border-b border-slate-50 dark:border-slate-800/40 last:border-0">
-              <div className="bg-slate-50 dark:bg-slate-800 aspect-square rounded-xl w-22 h-22 bg-cover bg-center overflow-hidden border border-slate-100 dark:border-slate-800 flex-shrink-0" data-alt="Feitian Maotai" style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1584225065152-4a145afaa3cc?q=80&w=800&auto=format&fit=crop")' }}>
+              <div className="bg-slate-50 dark:bg-slate-800 aspect-square rounded-xl w-22 h-22 bg-cover bg-center overflow-hidden border border-slate-100 dark:border-slate-800 flex-shrink-0" data-alt="Feitian Maotai" style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?q=80&w=800&auto=format&fit=crop")' }}>
               </div>
               <div className="flex flex-1 flex-col py-0.5">
                 <div className="mb-1">
@@ -83,10 +97,17 @@ export default function Checkout() {
               <span className="material-symbols-outlined text-slate-300 dark:text-slate-600 text-[20px]">chevron_right</span>
             </div>
           </div>
-          <div className="flex justify-between items-center px-4 py-4 cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors">
+          <div 
+            className="flex justify-between items-center px-4 py-4 cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors"
+            onClick={() => setIsCouponModalOpen(true)}
+          >
             <span className="text-slate-700 dark:text-slate-300 text-[15px]">优惠券</span>
             <div className="flex items-center gap-1.5">
-              <span className="text-slate-400 dark:text-slate-500 text-sm">暂无可用优惠券</span>
+              {selectedCoupon ? (
+                <span className="text-primary text-sm font-medium">-¥{selectedCoupon.discount.toFixed(2)}</span>
+              ) : (
+                <span className="text-slate-400 dark:text-slate-500 text-sm">选择优惠券</span>
+              )}
               <span className="material-symbols-outlined text-slate-300 dark:text-slate-600 text-[20px]">chevron_right</span>
             </div>
           </div>
@@ -96,7 +117,7 @@ export default function Checkout() {
         <section className="mt-3 bg-white dark:bg-slate-900 px-4 py-5 shadow-sm space-y-3.5">
           <div className="flex justify-between items-center text-sm">
             <span className="text-slate-400 dark:text-slate-500">商品总计</span>
-            <span className="text-slate-900 dark:text-slate-100 font-medium tracking-tight">¥3,398.00</span>
+            <span className="text-slate-900 dark:text-slate-100 font-medium tracking-tight">¥{subtotal.toLocaleString('en-US', { minimumFractionDigits: 2 })}</span>
           </div>
           <div className="flex justify-between items-center text-sm">
             <span className="text-slate-400 dark:text-slate-500">运费</span>
@@ -104,11 +125,11 @@ export default function Checkout() {
           </div>
           <div className="flex justify-between items-center text-sm">
             <span className="text-slate-400 dark:text-slate-500">优惠减免</span>
-            <span className="text-emerald-500 font-medium tracking-tight">-¥0.00</span>
+            <span className="text-emerald-500 font-medium tracking-tight">-¥{discount.toLocaleString('en-US', { minimumFractionDigits: 2 })}</span>
           </div>
           <div className="pt-4 border-t border-slate-100 dark:border-slate-800/60 flex justify-between items-center">
             <span className="text-slate-900 dark:text-slate-100 font-bold">实付款</span>
-            <span className="text-primary text-xl font-bold tracking-tight">¥3,398.00</span>
+            <span className="text-primary text-xl font-bold tracking-tight">¥{total.toLocaleString('en-US', { minimumFractionDigits: 2 })}</span>
           </div>
         </section>
       </main>
@@ -118,13 +139,70 @@ export default function Checkout() {
         <div className="flex flex-col">
           <span className="text-slate-400 dark:text-slate-500 text-[11px] font-medium uppercase tracking-wider mb-0.5">实付总额</span>
           <div className="flex items-baseline gap-0.5">
-            <span className="text-primary text-[24px] font-black tracking-tight">¥3,398.00</span>
+            <span className="text-primary text-[24px] font-black tracking-tight">¥{total.toLocaleString('en-US', { minimumFractionDigits: 2 })}</span>
           </div>
         </div>
         <Link to="/payment" className="bg-primary hover:bg-primary/90 text-white font-bold py-3 px-12 rounded-full transition-all active:scale-[0.97] shadow-lg shadow-primary/25 text-base">
           提交订单
         </Link>
       </footer>
+
+      {/* Coupon Modal */}
+      {isCouponModalOpen && (
+        <div className="fixed inset-0 z-[100] flex flex-col justify-end">
+          <div 
+            className="absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity" 
+            onClick={() => setIsCouponModalOpen(false)}
+          ></div>
+          <div className="relative bg-slate-50 dark:bg-slate-900 rounded-t-2xl w-full max-h-[80vh] flex flex-col animate-in slide-in-from-bottom-full duration-300">
+            <div className="flex items-center justify-between px-4 py-4 border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 rounded-t-2xl">
+              <h3 className="text-lg font-bold text-slate-900 dark:text-white">选择优惠券</h3>
+              <button onClick={() => setIsCouponModalOpen(false)} className="p-1 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
+                <span className="material-symbols-outlined">close</span>
+              </button>
+            </div>
+            
+            <div className="flex-1 overflow-y-auto p-4 space-y-3 pb-safe">
+              {/* Do not use coupon option */}
+              <div 
+                className={`flex items-center justify-between p-4 rounded-xl border bg-white dark:bg-slate-950 cursor-pointer transition-colors ${!selectedCoupon ? 'border-primary bg-primary/5 dark:bg-primary/10' : 'border-slate-200 dark:border-slate-800'}`}
+                onClick={() => {
+                  setSelectedCoupon(null);
+                  setIsCouponModalOpen(false);
+                }}
+              >
+                <span className="text-slate-900 dark:text-white font-medium">不使用优惠券</span>
+                {!selectedCoupon && <span className="material-symbols-outlined text-primary">check_circle</span>}
+              </div>
+
+              {/* Coupon list */}
+              {coupons.map(coupon => (
+                <div 
+                  key={coupon.id}
+                  className={`flex items-center p-4 rounded-xl border bg-white dark:bg-slate-950 cursor-pointer transition-colors ${selectedCoupon?.id === coupon.id ? 'border-primary bg-primary/5 dark:bg-primary/10' : 'border-slate-200 dark:border-slate-800'}`}
+                  onClick={() => {
+                    setSelectedCoupon(coupon);
+                    setIsCouponModalOpen(false);
+                  }}
+                >
+                  <div className="flex-1 flex items-center gap-4">
+                    <div className="flex flex-col items-center justify-center w-20 text-primary border-r border-slate-100 dark:border-slate-800 pr-4">
+                      <span className="text-2xl font-bold"><span className="text-sm">¥</span>{coupon.discount}</span>
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="text-slate-900 dark:text-white font-bold">{coupon.name}</span>
+                      <span className="text-slate-500 text-xs mt-1">{coupon.condition}</span>
+                    </div>
+                  </div>
+                  {selectedCoupon?.id === coupon.id && (
+                    <span className="material-symbols-outlined text-primary">check_circle</span>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

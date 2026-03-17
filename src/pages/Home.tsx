@@ -126,7 +126,7 @@ export default function Home() {
         </div>
         <div className="flex gap-3 overflow-x-auto hide-scrollbar">
           {[
-            { id: 1, name: '飞天茅台 53度 500ml', price: 2999, original: 3299, img: 'https://images.unsplash.com/photo-1584225065152-4a145afaa3cc?q=80&w=200&auto=format&fit=crop' },
+            { id: 1, name: '飞天茅台 53度 500ml', price: 2999, original: 3299, img: 'https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?q=80&w=200&auto=format&fit=crop' },
             { id: 2, name: '人参枸杞养生酒 500ml', price: 199, original: 399, img: 'https://images.unsplash.com/photo-1569529465841-dfecdab7503b?q=80&w=200&auto=format&fit=crop' },
             { id: 3, name: '五粮液 普五第八代 52度', price: 999, original: 1499, img: 'https://images.unsplash.com/photo-1596460107916-430662021049?q=80&w=200&auto=format&fit=crop' },
           ].map(product => (

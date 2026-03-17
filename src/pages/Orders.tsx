@@ -32,7 +32,7 @@ export default function Orders() {
             <span className="text-sm font-semibold text-orange-500">待付款</span>
           </div>
           <div className="flex gap-4">
-            <div className="h-20 w-20 shrink-0 bg-slate-100 dark:bg-slate-800 rounded-lg bg-center bg-no-repeat bg-cover" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1584225065152-4a145afaa3cc?q=80&w=800&auto=format&fit=crop')" }}></div>
+            <div className="h-20 w-20 shrink-0 bg-slate-100 dark:bg-slate-800 rounded-lg bg-center bg-no-repeat bg-cover" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?q=80&w=800&auto=format&fit=crop')" }}></div>
             <div className="flex flex-col flex-1 min-w-0">
               <p className="text-slate-900 dark:text-slate-100 text-sm font-bold truncate">飞天茅台 53度</p>
               <p className="text-slate-500 dark:text-slate-400 text-xs mt-1">500ml, 酱香型白酒</p>

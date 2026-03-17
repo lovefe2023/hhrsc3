@@ -38,7 +38,7 @@ export default function OrderDetails() {
           <div className="space-y-3">
             <div className="bg-white dark:bg-slate-900 rounded-xl p-3 flex gap-4 border border-slate-100 dark:border-slate-800 shadow-sm">
               <div className="w-24 h-24 rounded-lg bg-slate-100 dark:bg-slate-800 shrink-0 overflow-hidden">
-                <img className="w-full h-full object-cover" src="https://images.unsplash.com/photo-1584225065152-4a145afaa3cc?q=80&w=800&auto=format&fit=crop" alt="Product" />
+                <img className="w-full h-full object-cover" src="https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?q=80&w=800&auto=format&fit=crop" alt="Product" />
               </div>
               <div className="flex-1 flex flex-col justify-between py-0.5">
                 <div>

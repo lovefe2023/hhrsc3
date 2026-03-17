@@ -30,7 +30,7 @@ export default function Cart() {
             <div className="flex items-center">
               <input defaultChecked className="rounded border-slate-300 text-primary focus:ring-primary h-5 w-5" type="checkbox" />
             </div>
-            <div className="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-24 shrink-0 bg-slate-100" data-alt="Feitian Maotai" style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1584225065152-4a145afaa3cc?q=80&w=800&auto=format&fit=crop")' }}></div>
+            <div className="bg-center bg-no-repeat aspect-square bg-cover rounded-lg size-24 shrink-0 bg-slate-100" data-alt="Feitian Maotai" style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?q=80&w=800&auto=format&fit=crop")' }}></div>
             <div className="flex flex-1 flex-col justify-between min-w-0">
               <div>
                 <p className="text-slate-900 dark:text-slate-100 text-sm font-medium line-clamp-2">飞天茅台 53度 500ml 酱香型白酒</p>
