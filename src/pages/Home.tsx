@@ -67,44 +67,60 @@ export default function Home() {
         </Link>
       </div>
 
-      {/* King Kong Area */}
-      <div className="grid gap-4 px-4 py-2 grid-cols-3 bg-white dark:bg-slate-950">
-        <Link to="/partner" className="flex flex-col items-center gap-2">
-          <div className="size-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary">
-            <span className="material-symbols-outlined text-2xl">handshake</span>
+      {/* 1st Layer Buttons */}
+      <div className="grid gap-4 px-4 py-4 grid-cols-4 bg-white dark:bg-slate-950">
+        <Link to="/coupons" className="flex flex-col items-center gap-2">
+          <div className="size-12 rounded-2xl bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center text-orange-500">
+            <span className="material-symbols-outlined text-2xl">local_activity</span>
           </div>
-          <span className="text-xs font-semibold">合伙人</span>
+          <span className="text-xs font-semibold">新人优享</span>
         </Link>
-        <Link to="/team" className="flex flex-col items-center gap-2">
-          <div className="size-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary">
-            <span className="material-symbols-outlined text-2xl">group</span>
+        <Link to="/products" className="flex flex-col items-center gap-2">
+          <div className="size-12 rounded-2xl bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-blue-500">
+            <span className="material-symbols-outlined text-2xl">groups</span>
           </div>
-          <span className="text-xs font-semibold">我的团队</span>
+          <span className="text-xs font-semibold">组团免单</span>
+        </Link>
+        <Link to="/partner" className="flex flex-col items-center gap-2">
+          <div className="size-12 rounded-2xl bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center text-purple-500">
+            <span className="material-symbols-outlined text-2xl">redeem</span>
+          </div>
+          <span className="text-xs font-semibold">合伙礼包</span>
         </Link>
         <Link to="/sales" className="flex flex-col items-center gap-2">
-          <div className="size-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary">
+          <div className="size-12 rounded-2xl bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center text-emerald-500">
             <span className="material-symbols-outlined text-2xl">payments</span>
           </div>
-          <span className="text-xs font-semibold">收益中心</span>
+          <span className="text-xs font-semibold">收益明细</span>
         </Link>
       </div>
 
-      {/* Categories */}
-      <div className="flex gap-6 overflow-x-auto px-4 py-4 hide-scrollbar bg-white dark:bg-slate-950 mb-2">
-        {[
-          { icon: 'wine_bar', label: '养生酒' },
-          { icon: 'liquor', label: '酱香白酒' },
-          { icon: 'local_bar', label: '浓香白酒' },
-          { icon: 'celebration', label: '进口红酒' },
-          { icon: 'redeem', label: '礼盒专区' },
-        ].map((item, i) => (
-          <Link to="/category" key={i} className="flex flex-col items-center gap-1.5 min-w-[56px]">
-            <div className="size-14 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-primary">
-              <span className="material-symbols-outlined">{item.icon}</span>
-            </div>
-            <span className="text-[11px] text-slate-600 dark:text-slate-400">{item.label}</span>
-          </Link>
-        ))}
+      {/* 2nd Layer Buttons */}
+      <div className="grid grid-cols-4 gap-2 px-4 py-2 bg-white dark:bg-slate-950 mb-2">
+        <Link to="/category" className="flex flex-col items-center gap-1.5">
+          <div className="size-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300">
+            <span className="material-symbols-outlined text-xl">spa</span>
+          </div>
+          <span className="text-[11px] text-slate-600 dark:text-slate-400">养生套餐</span>
+        </Link>
+        <Link to="/category" className="flex flex-col items-center gap-1.5">
+          <div className="size-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300">
+            <span className="material-symbols-outlined text-xl">card_giftcard</span>
+          </div>
+          <span className="text-[11px] text-slate-600 dark:text-slate-400">远方厚礼</span>
+        </Link>
+        <Link to="/category" className="flex flex-col items-center gap-1.5">
+          <div className="size-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300">
+            <span className="material-symbols-outlined text-xl">volunteer_activism</span>
+          </div>
+          <span className="text-[11px] text-slate-600 dark:text-slate-400">消费帮扶</span>
+        </Link>
+        <Link to="/category" className="flex flex-col items-center gap-1.5">
+          <div className="size-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300">
+            <span className="material-symbols-outlined text-xl">stars</span>
+          </div>
+          <span className="text-[11px] text-slate-600 dark:text-slate-400">积分商城</span>
+        </Link>
       </div>
 
       {/* 1. 限时秒杀 Flash Sale */}
@@ -144,45 +160,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 2. 团购免单 Group Buy */}
-      <section className="bg-white dark:bg-slate-950 px-4 py-4 mb-2">
-        <div className="flex items-center justify-between mb-4">
-          <h3 className="text-lg font-bold">团购免单</h3>
-          <Link to="/products" className="text-slate-500 text-xs flex items-center">
-            查看更多 <span className="material-symbols-outlined text-[14px]">chevron_right</span>
-          </Link>
-        </div>
-        <div className="flex gap-3 overflow-x-auto hide-scrollbar">
-          {[
-            { id: 4, name: '宁夏红 枸杞养生酒 礼盒装', groupSize: 3, img: 'https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?q=80&w=200&auto=format&fit=crop' },
-            { id: 5, name: '奔富 MAX 麦克斯 干红', groupSize: 5, img: 'https://images.unsplash.com/photo-1585553616435-2dc0a54e271d?q=80&w=200&auto=format&fit=crop' },
-            { id: 6, name: '国窖1573 浓香型白酒', groupSize: 2, img: 'https://images.unsplash.com/photo-1574085733277-851d9d856a3a?q=80&w=200&auto=format&fit=crop' },
-          ].map(product => (
-            <Link to={`/product/${product.id}`} key={product.id} className="w-[140px] shrink-0 border border-slate-100 dark:border-slate-800 rounded-xl overflow-hidden">
-              <div className="w-full aspect-square bg-slate-100 dark:bg-slate-800 relative">
-                <img src={product.img} alt={product.name} className="w-full h-full object-cover" />
-                <div className="absolute top-0 left-0 bg-gradient-to-r from-orange-500 to-red-500 text-white text-[10px] font-bold px-2 py-1 rounded-br-lg">
-                  {product.groupSize}人团免单
-                </div>
-              </div>
-              <div className="p-2">
-                <h4 className="text-xs font-medium line-clamp-1 mb-1">{product.name}</h4>
-                <div className="flex items-center justify-between">
-                  <span className="text-primary font-bold text-sm">¥0.00</span>
-                  <span className="text-[10px] bg-primary/10 text-primary px-1.5 py-0.5 rounded">去开团</span>
-                </div>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </section>
-
-      {/* 3. 为你推荐 Recommended */}
+      {/* 2. 今日主推专区 Today's Top Picks */}
       <section className="px-4 py-4 mb-6">
         <div className="flex items-center justify-center mb-4">
           <h3 className="text-lg font-bold flex items-center gap-2">
             <span className="w-8 h-[1px] bg-slate-300 dark:bg-slate-700"></span>
-            为你推荐
+            今日主推专区
             <span className="w-8 h-[1px] bg-slate-300 dark:bg-slate-700"></span>
           </h3>
         </div>

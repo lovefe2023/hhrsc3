@@ -11,9 +11,9 @@ export default function Layout() {
 
   const navItems = [
     { path: '/', icon: 'home', label: '首页' },
-    { path: '/category', icon: 'category', label: '分类' },
+    { path: '/category', icon: 'category', label: '商品分类' },
     { path: '/cart', icon: 'shopping_cart', label: '购物车' },
-    { path: '/partner', icon: 'handshake', label: '合伙人' },
+    { path: '/partner', icon: 'handshake', label: '合伙人中心' },
     { path: '/profile', icon: 'person', label: '我的' },
   ];
 
