@@ -75,7 +75,7 @@ export default function Home() {
           </div>
           <span className="text-xs font-semibold">新人优享</span>
         </Link>
-        <Link to="/products" className="flex flex-col items-center gap-2">
+        <Link to="/group-buy" className="flex flex-col items-center gap-2">
           <div className="size-12 rounded-2xl bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-blue-500">
             <span className="material-symbols-outlined text-2xl">groups</span>
           </div>
