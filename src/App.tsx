@@ -30,6 +30,7 @@ import Register from './pages/Register';
 import SalesDetails from './pages/SalesDetails';
 import Withdraw from './pages/Withdraw';
 import TeamSales from './pages/TeamSales';
+import Coupons from './pages/Coupons';
 
 export default function App() {
   return (
@@ -61,6 +62,7 @@ export default function App() {
           <Route path="sales/details" element={<SalesDetails />} />
           <Route path="withdraw" element={<Withdraw />} />
           <Route path="team-sales" element={<TeamSales />} />
+          <Route path="coupons" element={<Coupons />} />
         </Route>
       </Routes>
     </Router>
