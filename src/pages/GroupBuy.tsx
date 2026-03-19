@@ -1,44 +1,58 @@
-import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
 
 export default function GroupBuy() {
   const navigate = useNavigate();
+  const [activeTab, setActiveTab] = useState<'hot' | 'mine'>('hot');
 
-  const products = [
+  const hotProducts = [
     {
       id: 1,
-      title: '飞天茅台 53度 500ml 酱香型白酒',
-      subtitle: '酱香突出 幽雅细腻',
-      singlePrice: 3299,
+      title: '飞天茅台 53度 500ml 酱香型白酒 优质纯粮酿造',
+      originalPrice: 3299,
       groupPrice: 2999,
-      save: 300,
+      targetSize: 3,
+      currentParticipants: 2,
       img: 'https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?q=80&w=400&auto=format&fit=crop'
     },
     {
       id: 2,
-      title: '五粮液 普五第八代 52度 浓香型白酒',
-      subtitle: '香气悠久 味醇厚',
-      singlePrice: 1499,
+      title: '五粮液 普五第八代 52度 浓香型白酒 经典传承',
+      originalPrice: 1499,
       groupPrice: 1099,
-      save: 400,
+      targetSize: 3,
+      currentParticipants: 1,
       img: 'https://images.unsplash.com/photo-1596460107916-430662021049?q=80&w=400&auto=format&fit=crop'
     },
     {
       id: 3,
       title: '国窖1573 52度 浓香型白酒 500ml',
-      subtitle: '源自百年老窖池',
-      singlePrice: 1299,
+      originalPrice: 1299,
       groupPrice: 999,
-      save: 300,
+      targetSize: 3,
+      currentParticipants: 0,
       img: 'https://images.unsplash.com/photo-1574085733277-851d9d856a3a?q=80&w=400&auto=format&fit=crop'
     },
     {
       id: 4,
-      title: '奔富 MAX 麦克斯 干红葡萄酒',
-      subtitle: '澳洲原瓶进口',
-      singlePrice: 299,
+      title: '奔富 MAX 麦克斯 干红葡萄酒 澳洲原瓶进口',
+      originalPrice: 299,
       groupPrice: 168,
-      save: 131,
+      targetSize: 3,
+      currentParticipants: 2,
       img: 'https://images.unsplash.com/photo-1585553616435-2dc0a54e271d?q=80&w=400&auto=format&fit=crop'
+    }
+  ];
+
+  const myGroups = [
+    {
+      id: 1,
+      title: '飞天茅台 53度 500ml 酱香型白酒',
+      groupPrice: 2999,
+      targetSize: 3,
+      currentParticipants: 2,
+      status: '拼团中',
+      img: 'https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?q=80&w=400&auto=format&fit=crop'
     }
   ];
 
@@ -55,77 +69,136 @@ export default function GroupBuy() {
       <main className="flex-1 overflow-y-auto pb-safe">
         {/* Rules Banner */}
         <div className="px-4 pt-4 pb-2">
-          <div className="bg-gradient-to-br from-rose-500 to-red-600 rounded-2xl p-5 text-white shadow-lg shadow-red-500/20 relative overflow-hidden">
+          <div className="bg-gradient-to-br from-red-500 to-rose-600 rounded-2xl p-4 text-white shadow-lg shadow-red-500/20 relative overflow-hidden">
             <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl -translate-y-1/2 translate-x-1/3"></div>
             
-            <h2 className="text-xl font-black mb-1 flex items-center gap-2 relative z-10">
+            <h2 className="text-lg font-black mb-2 flex items-center gap-2 relative z-10">
               <span className="material-symbols-outlined">groups</span>
-              3人拼团 订单免单
+              参团返利规则
             </h2>
-            <p className="text-red-100 text-xs mb-5 relative z-10">邀请好友参与，最高全额返现</p>
             
-            <div className="flex justify-between items-start relative z-10">
-              <div className="flex flex-col items-center flex-1">
-                <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center font-bold text-lg mb-2 border border-white/30">1</div>
-                <span className="text-[11px] text-center leading-tight">1人参与<br/>返20%</span>
-              </div>
-              <div className="w-8 h-[1px] bg-white/30 mt-5"></div>
-              <div className="flex flex-col items-center flex-1">
-                <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center font-bold text-lg mb-2 border border-white/30">2</div>
-                <span className="text-[11px] text-center leading-tight">推荐第2人<br/>返20%</span>
-              </div>
-              <div className="w-8 h-[1px] bg-white/30 mt-5"></div>
-              <div className="flex flex-col items-center flex-1">
-                <div className="w-10 h-10 rounded-full bg-white text-red-600 flex items-center justify-center font-bold text-lg mb-2 shadow-md">3</div>
-                <span className="text-[11px] text-center font-bold text-yellow-200 leading-tight">推荐第3人<br/>返60% (免单)</span>
-              </div>
+            <div className="bg-white/10 rounded-xl p-3 backdrop-blur-sm border border-white/20 relative z-10">
+              <p className="text-sm font-medium leading-relaxed">
+                1人参与返 <span className="text-yellow-300 font-bold text-base">20%</span><br/>
+                推荐第2人返 <span className="text-yellow-300 font-bold text-base">20%</span><br/>
+                推荐第3人返 <span className="text-yellow-300 font-bold text-base">60%</span> 且 <span className="bg-yellow-300 text-red-600 px-1 rounded font-bold">订单免单</span>
+              </p>
             </div>
           </div>
         </div>
 
-        {/* Product List */}
-        <div className="px-4 py-3 space-y-3">
-          {products.map(p => (
-            <div key={p.id} className="bg-white dark:bg-slate-900 rounded-2xl p-3 flex gap-3 shadow-sm border border-slate-100 dark:border-slate-800">
-              <div className="w-[120px] h-[120px] shrink-0 rounded-xl bg-slate-100 dark:bg-slate-800 relative overflow-hidden">
-                <img src={p.img} alt={p.title} className="w-full h-full object-cover" />
-                <div className="absolute top-0 left-0 bg-gradient-to-r from-red-500 to-rose-500 text-white text-[10px] font-bold px-2 py-1 rounded-br-lg">
-                  3人团
-                </div>
-              </div>
-              
-              <div className="flex-1 flex flex-col min-w-0 py-0.5">
-                <h3 className="text-[14px] font-bold text-slate-900 dark:text-slate-100 leading-snug line-clamp-2 mb-1">
-                  {p.title}
-                </h3>
-                <p className="text-[11px] text-slate-500 dark:text-slate-400 line-clamp-1 mb-2">
-                  {p.subtitle}
-                </p>
-                
-                <div className="mt-auto">
-                  <div className="flex items-center gap-2 mb-1.5">
-                    <span className="bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 text-[10px] font-bold px-1.5 py-0.5 rounded">
-                      立省 ¥{p.save}
-                    </span>
-                    <span className="text-[10px] text-slate-400 line-through">
-                      单买价 ¥{p.singlePrice}
+        {/* Tabs */}
+        <div className="flex px-4 mt-2 mb-3 border-b border-slate-200 dark:border-slate-800">
+          <button
+            onClick={() => setActiveTab('hot')}
+            className={`flex-1 py-3 text-sm font-bold relative transition-colors ${
+              activeTab === 'hot' ? 'text-red-500' : 'text-slate-500 dark:text-slate-400'
+            }`}
+          >
+            热门团购
+            {activeTab === 'hot' && (
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-8 h-0.5 bg-red-500 rounded-t-full"></div>
+            )}
+          </button>
+          <button
+            onClick={() => setActiveTab('mine')}
+            className={`flex-1 py-3 text-sm font-bold relative transition-colors ${
+              activeTab === 'mine' ? 'text-red-500' : 'text-slate-500 dark:text-slate-400'
+            }`}
+          >
+            我的团购
+            {activeTab === 'mine' && (
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-8 h-0.5 bg-red-500 rounded-t-full"></div>
+            )}
+          </button>
+        </div>
+
+        {/* Product Grid */}
+        {activeTab === 'hot' ? (
+          <div className="grid grid-cols-2 gap-3 px-4 pb-6">
+            {hotProducts.map(p => (
+              <div key={p.id} className="bg-white dark:bg-slate-900 rounded-xl overflow-hidden shadow-sm border border-slate-100 dark:border-slate-800 flex flex-col">
+                <Link to={`/product/${p.id}`} className="relative aspect-square bg-slate-100 dark:bg-slate-800 block">
+                  <img src={p.img} alt={p.title} className="w-full h-full object-cover" />
+                  <div className="absolute top-0 left-0 bg-gradient-to-r from-red-500 to-rose-500 text-white text-[10px] font-bold px-2 py-1 rounded-br-lg z-10">
+                    {p.targetSize}人团免单
+                  </div>
+                  {/* Progress bar overlay */}
+                  <div className="absolute bottom-0 left-0 right-0 bg-black/40 backdrop-blur-sm px-2 py-1.5 flex items-center gap-1.5">
+                    <div className="flex-1 h-1.5 bg-white/30 rounded-full overflow-hidden">
+                      <div 
+                        className="h-full bg-gradient-to-r from-yellow-400 to-red-500 rounded-full" 
+                        style={{ width: `${(p.currentParticipants / p.targetSize) * 100}%` }}
+                      ></div>
+                    </div>
+                    <span className="text-[9px] text-white font-medium whitespace-nowrap">
+                      已参团 {p.currentParticipants}/{p.targetSize}
                     </span>
                   </div>
+                </Link>
+                
+                <div className="p-2.5 flex flex-col flex-1">
+                  <Link to={`/product/${p.id}`}>
+                    <h3 className="text-[13px] font-bold text-slate-900 dark:text-slate-100 leading-snug line-clamp-2 mb-2">
+                      {p.title}
+                    </h3>
+                  </Link>
                   
-                  <div className="flex items-end justify-between">
-                    <div className="flex items-baseline text-red-600 font-bold">
-                      <span className="text-xs mr-0.5">团购价 ¥</span>
-                      <span className="text-xl tracking-tight leading-none">{p.groupPrice}</span>
+                  <div className="mt-auto">
+                    <div className="flex items-baseline gap-1 mb-2">
+                      <span className="text-red-500 font-bold text-sm">¥{p.groupPrice}</span>
+                      <span className="text-slate-400 text-[10px] line-through">¥{p.originalPrice}</span>
                     </div>
-                    <button className="bg-gradient-to-r from-red-600 to-rose-500 text-white text-xs font-bold px-4 py-2 rounded-full shadow-md shadow-red-500/20 active:scale-95 transition-transform">
-                      立即开团
+                    
+                    <button 
+                      onClick={(e) => {
+                        e.preventDefault();
+                        navigate('/checkout');
+                      }}
+                      className="w-full bg-gradient-to-r from-red-600 to-rose-500 text-white text-xs font-bold py-2 rounded-full shadow-sm shadow-red-500/20 active:scale-95 transition-transform"
+                    >
+                      {p.currentParticipants > 0 ? '去参团' : '发起团购'}
                     </button>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        ) : (
+          <div className="px-4 pb-6 space-y-3">
+            {myGroups.length > 0 ? myGroups.map(g => (
+              <div key={g.id} className="bg-white dark:bg-slate-900 rounded-xl p-3 flex gap-3 shadow-sm border border-slate-100 dark:border-slate-800">
+                <div className="w-20 h-20 shrink-0 rounded-lg bg-slate-100 dark:bg-slate-800 overflow-hidden">
+                  <img src={g.img} alt={g.title} className="w-full h-full object-cover" />
+                </div>
+                <div className="flex-1 flex flex-col">
+                  <div className="flex justify-between items-start mb-1">
+                    <h3 className="text-xs font-bold text-slate-900 dark:text-slate-100 line-clamp-2 pr-2">
+                      {g.title}
+                    </h3>
+                    <span className="text-red-500 text-[10px] font-bold shrink-0 bg-red-50 dark:bg-red-900/20 px-1.5 py-0.5 rounded">
+                      {g.status}
+                    </span>
+                  </div>
+                  <div className="text-[10px] text-slate-500 mb-2">
+                    进度: {g.currentParticipants}/{g.targetSize}人
+                  </div>
+                  <div className="mt-auto flex justify-between items-center">
+                    <span className="text-red-500 font-bold text-sm">¥{g.groupPrice}</span>
+                    <button className="bg-red-500 text-white text-[10px] font-bold px-3 py-1.5 rounded-full">
+                      邀请好友
+                    </button>
+                  </div>
+                </div>
+              </div>
+            )) : (
+              <div className="py-20 flex flex-col items-center justify-center text-slate-400">
+                <span className="material-symbols-outlined text-4xl mb-2 opacity-50">group_off</span>
+                <p className="text-sm">暂无参与的团购</p>
+              </div>
+            )}
+          </div>
+        )}
       </main>
     </div>
   );

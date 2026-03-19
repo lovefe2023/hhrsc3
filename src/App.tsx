@@ -32,6 +32,8 @@ import Withdraw from './pages/Withdraw';
 import TeamSales from './pages/TeamSales';
 import Coupons from './pages/Coupons';
 import GroupBuy from './pages/GroupBuy';
+import PartnerPackage from './pages/PartnerPackage';
+import CategoryList from './pages/CategoryList';
 
 export default function App() {
   return (
@@ -65,6 +67,8 @@ export default function App() {
           <Route path="team-sales" element={<TeamSales />} />
           <Route path="coupons" element={<Coupons />} />
           <Route path="group-buy" element={<GroupBuy />} />
+          <Route path="partner-package" element={<PartnerPackage />} />
+          <Route path="category-list/:type" element={<CategoryList />} />
         </Route>
       </Routes>
     </Router>
