@@ -9,9 +9,7 @@ export default function Cart() {
           <span className="material-symbols-outlined">arrow_back</span>
         </Link>
         <h1 className="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-tight flex-1 text-center">购物车 (3)</h1>
-        <div className="flex w-10 items-center justify-end">
-          <button className="text-primary text-sm font-semibold">编辑</button>
-        </div>
+        <div className="flex w-10 items-center justify-end"></div>
       </header>
 
       {/* Cart Content */}

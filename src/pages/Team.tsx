@@ -12,19 +12,19 @@ export default function Team() {
 
       <div className="p-4">
         <div className="grid grid-cols-2 gap-4">
+          <Link to="/team-sales" className="flex flex-col gap-2 rounded-xl p-5 bg-white dark:bg-slate-900 shadow-sm border border-slate-100 dark:border-slate-800 active:scale-[0.98] transition-transform">
+            <div className="flex items-center gap-2">
+              <span className="material-symbols-outlined text-primary text-xl">monitoring</span>
+              <p className="text-slate-500 dark:text-slate-400 text-sm font-medium">团队销售额</p>
+            </div>
+            <p className="text-primary tracking-tight text-2xl font-bold">¥84,320</p>
+          </Link>
           <div className="flex flex-col gap-2 rounded-xl p-5 bg-white dark:bg-slate-900 shadow-sm border border-slate-100 dark:border-slate-800">
             <div className="flex items-center gap-2">
               <span className="material-symbols-outlined text-primary text-xl">group</span>
-              <p className="text-slate-500 dark:text-slate-400 text-sm font-medium">推荐人数</p>
+              <p className="text-slate-500 dark:text-slate-400 text-sm font-medium">团队成员数</p>
             </div>
             <p className="text-primary tracking-tight text-3xl font-bold">128</p>
-          </div>
-          <div className="flex flex-col gap-2 rounded-xl p-5 bg-white dark:bg-slate-900 shadow-sm border border-slate-100 dark:border-slate-800">
-            <div className="flex items-center gap-2">
-              <span className="material-symbols-outlined text-primary text-xl">handshake</span>
-              <p className="text-slate-500 dark:text-slate-400 text-sm font-medium">合伙人数</p>
-            </div>
-            <p className="text-primary tracking-tight text-3xl font-bold">35</p>
           </div>
         </div>
       </div>

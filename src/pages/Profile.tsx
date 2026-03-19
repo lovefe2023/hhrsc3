@@ -39,20 +39,7 @@ export default function Profile() {
             </div>
           </div>
         </div>
-        <div className="grid grid-cols-3 gap-4 mt-6 pt-6 border-t border-slate-100 dark:border-slate-800">
-          <Link to="/wallet" className="text-center active:opacity-70 transition-opacity">
-            <p className="text-slate-900 dark:text-slate-100 font-bold text-lg">¥2,450</p>
-            <p className="text-slate-500 text-xs">账户余额</p>
-          </Link>
-          <Link to="/points" className="text-center border-x border-slate-100 dark:border-slate-800 active:opacity-70 transition-opacity">
-            <p className="text-slate-900 dark:text-slate-100 font-bold text-lg">1,280</p>
-            <p className="text-slate-500 text-xs">酒滴积分</p>
-          </Link>
-          <Link to="/coupons" className="text-center active:opacity-70 transition-opacity">
-            <p className="text-slate-900 dark:text-slate-100 font-bold text-lg">12</p>
-            <p className="text-slate-500 text-xs">品鉴券</p>
-          </Link>
-        </div>
+
       </div>
 
       {/* 合伙人专属卡片 */}
@@ -110,29 +97,6 @@ export default function Profile() {
         </div>
       </div>
 
-      {/* 我的服务宫格区 */}
-      <div className="bg-white dark:bg-slate-900 p-4 mb-2">
-        <h3 className="text-slate-900 dark:text-slate-100 text-base font-bold mb-4">我的服务</h3>
-        <div className="grid grid-cols-4 gap-4">
-          <Link to="/favorites" className="flex flex-col items-center gap-2">
-            <span className="material-symbols-outlined text-rose-500 text-2xl">favorite</span>
-            <p className="text-slate-600 dark:text-slate-400 text-xs">我的酒窖</p>
-          </Link>
-          <Link to="/history" className="flex flex-col items-center gap-2">
-            <span className="material-symbols-outlined text-blue-500 text-2xl">history</span>
-            <p className="text-slate-600 dark:text-slate-400 text-xs">品鉴足迹</p>
-          </Link>
-          <Link to="/after-sales" className="flex flex-col items-center gap-2">
-            <span className="material-symbols-outlined text-orange-500 text-2xl">support_agent</span>
-            <p className="text-slate-600 dark:text-slate-400 text-xs">退换/售后</p>
-          </Link>
-          <Link to="/help" className="flex flex-col items-center gap-2">
-            <span className="material-symbols-outlined text-emerald-500 text-2xl">help_center</span>
-            <p className="text-slate-600 dark:text-slate-400 text-xs">帮助中心</p>
-          </Link>
-        </div>
-      </div>
-
       <div className="bg-white dark:bg-slate-900 px-4 py-2">
         <div className="flex flex-col">
           <Link to="/team" className="flex items-center justify-between py-4 border-b border-slate-50 dark:border-slate-800">
@@ -150,6 +114,15 @@ export default function Profile() {
                 <span className="material-symbols-outlined text-emerald-500 text-xl">payments</span>
               </div>
               <span className="text-slate-800 dark:text-slate-200 font-medium">我的收益</span>
+            </div>
+            <span className="material-symbols-outlined text-slate-300">chevron_right</span>
+          </Link>
+          <Link to="/my-coupons" className="flex items-center justify-between py-4 border-b border-slate-50 dark:border-slate-800">
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 rounded-lg bg-amber-500/10 flex items-center justify-center">
+                <span className="material-symbols-outlined text-amber-500 text-xl">confirmation_number</span>
+              </div>
+              <span className="text-slate-800 dark:text-slate-200 font-medium">我的优惠券</span>
             </div>
             <span className="material-symbols-outlined text-slate-300">chevron_right</span>
           </Link>

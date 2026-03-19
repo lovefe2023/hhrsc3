@@ -18,7 +18,7 @@ export default function Layout() {
   ];
 
   // Hide bottom nav on certain pages
-  const hideNavPaths = ['/order/', '/settings', '/team', '/member/', '/checkout', '/payment', '/addresses', '/login', '/register', '/withdraw', '/coupons', '/group-buy', '/partner-package', '/category-list'];
+  const hideNavPaths = ['/order/', '/settings', '/team', '/member/', '/checkout', '/payment', '/addresses', '/login', '/register', '/withdraw', '/coupons', '/my-coupons', '/group-buy', '/partner-package', '/category-list', '/faq/', '/partner/new-today', '/leaderboard', '/my-cellar'];
   const showNav = !hideNavPaths.some(path => location.pathname.startsWith(path));
 
   return (

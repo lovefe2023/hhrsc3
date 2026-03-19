@@ -144,13 +144,7 @@ export default function Coupons() {
           ))}
         </div>
 
-        {/* Bottom Link */}
-        <div className="py-6 flex justify-center">
-          <Link to="/profile" className="flex items-center gap-1 text-sm text-slate-500 dark:text-slate-400 hover:text-primary transition-colors">
-            <span>更多优惠</span>
-            <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
-          </Link>
-        </div>
+
       </main>
     </div>
   );

@@ -31,9 +31,16 @@ import SalesDetails from './pages/SalesDetails';
 import Withdraw from './pages/Withdraw';
 import TeamSales from './pages/TeamSales';
 import Coupons from './pages/Coupons';
+import MyCoupons from './pages/MyCoupons';
 import GroupBuy from './pages/GroupBuy';
 import PartnerPackage from './pages/PartnerPackage';
 import CategoryList from './pages/CategoryList';
+import FaqCommission from './pages/FaqCommission';
+import FaqUpgrade from './pages/FaqUpgrade';
+import FaqInvite from './pages/FaqInvite';
+import NewPartnersToday from './pages/NewPartnersToday';
+import Leaderboard from './pages/Leaderboard';
+import MyCellar from './pages/MyCellar';
 
 export default function App() {
   return (
@@ -49,6 +56,9 @@ export default function App() {
           <Route path="partner/recruit" element={<PartnerRecruit />} />
           <Route path="partner/recruit/details" element={<PartnerRecruitDetails />} />
           <Route path="partner/invite" element={<PartnerInvite />} />
+          <Route path="partner/new-today" element={<NewPartnersToday />} />
+          <Route path="leaderboard" element={<Leaderboard />} />
+          <Route path="my-cellar" element={<MyCellar />} />
           <Route path="profile" element={<Profile />} />
           <Route path="team" element={<Team />} />
           <Route path="orders" element={<Orders />} />
@@ -66,9 +76,13 @@ export default function App() {
           <Route path="withdraw" element={<Withdraw />} />
           <Route path="team-sales" element={<TeamSales />} />
           <Route path="coupons" element={<Coupons />} />
+          <Route path="my-coupons" element={<MyCoupons />} />
           <Route path="group-buy" element={<GroupBuy />} />
           <Route path="partner-package" element={<PartnerPackage />} />
           <Route path="category-list/:type" element={<CategoryList />} />
+          <Route path="faq/commission" element={<FaqCommission />} />
+          <Route path="faq/upgrade" element={<FaqUpgrade />} />
+          <Route path="faq/invite" element={<FaqInvite />} />
         </Route>
       </Routes>
     </Router>

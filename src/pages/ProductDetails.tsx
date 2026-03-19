@@ -1,6 +1,15 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 export default function ProductDetails() {
+  const [showShareModal, setShowShareModal] = useState(false);
+  const [showToast, setShowToast] = useState(false);
+
+  const handleAddToCart = () => {
+    setShowToast(true);
+    setTimeout(() => setShowToast(false), 2000);
+  };
+
   return (
     <div className="flex-1 flex flex-col overflow-hidden bg-background-light dark:bg-background-dark">
       <nav className="sticky top-0 z-50 flex items-center bg-white/80 dark:bg-background-dark/80 backdrop-blur-md px-4 py-3 border-b border-slate-200 dark:border-slate-800 relative">
@@ -29,9 +38,9 @@ export default function ProductDetails() {
               <span className="text-primary text-4xl font-bold">2,999</span>
               <span className="text-slate-400 dark:text-slate-500 line-through ml-2 text-sm">¥3,299</span>
             </div>
-            <button className="flex flex-col items-center text-slate-500 dark:text-slate-400">
-              <span className="material-symbols-outlined text-primary">ios_share</span>
-              <span className="text-[10px] mt-0.5">生成海报</span>
+            <button onClick={() => setShowShareModal(true)} className="flex flex-col items-center text-slate-500 dark:text-slate-400">
+              <span className="material-symbols-outlined text-primary">share</span>
+              <span className="text-[10px] mt-0.5">分享</span>
             </button>
           </div>
           <h1 className="text-xl font-bold leading-snug mb-3">飞天茅台 53度 500ml 酱香型白酒 - 酱香突出 幽雅细腻</h1>
@@ -100,10 +109,61 @@ export default function ProductDetails() {
 
       <div className="shrink-0 z-40 px-4 py-2 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-t border-slate-200 dark:border-slate-800 flex items-center gap-3">
         <div className="flex-1 flex gap-3">
-          <button className="flex-1 h-12 bg-primary/10 text-primary font-bold rounded-full text-base transition-colors hover:bg-primary/20">加入购物车</button>
+          <button onClick={handleAddToCart} className="flex-1 h-12 bg-primary/10 text-primary font-bold rounded-full text-base transition-colors hover:bg-primary/20">加入购物车</button>
           <Link to="/cart" className="flex-1 h-12 flex items-center justify-center bg-primary text-white font-bold rounded-full text-base shadow-lg shadow-primary/20 transition-transform active:scale-95">立即购买</Link>
         </div>
       </div>
+
+      {/* Share Modal */}
+      {showShareModal && (
+        <div className="fixed inset-0 z-[100] flex items-end justify-center bg-black/50 backdrop-blur-sm" onClick={() => setShowShareModal(false)}>
+          <div 
+            className="w-full bg-white dark:bg-slate-900 rounded-t-2xl p-6 pb-10 animate-in slide-in-from-bottom-full duration-300"
+            onClick={e => e.stopPropagation()}
+          >
+            <div className="flex justify-between items-center mb-6">
+              <h3 className="text-lg font-bold text-slate-900 dark:text-slate-100">分享商品</h3>
+              <button onClick={() => setShowShareModal(false)} className="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
+                <span className="material-symbols-outlined">close</span>
+              </button>
+            </div>
+            <div className="grid grid-cols-4 gap-4">
+              <button className="flex flex-col items-center gap-2" onClick={() => { alert('海报已生成并保存到相册'); setShowShareModal(false); }}>
+                <div className="w-12 h-12 rounded-full bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center text-orange-500">
+                  <span className="material-symbols-outlined">image</span>
+                </div>
+                <span className="text-xs text-slate-600 dark:text-slate-400">生成海报</span>
+              </button>
+              <button className="flex flex-col items-center gap-2" onClick={() => { alert('链接已复制到剪贴板'); setShowShareModal(false); }}>
+                <div className="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-blue-500">
+                  <span className="material-symbols-outlined">link</span>
+                </div>
+                <span className="text-xs text-slate-600 dark:text-slate-400">复制链接</span>
+              </button>
+              <button className="flex flex-col items-center gap-2" onClick={() => setShowShareModal(false)}>
+                <div className="w-12 h-12 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center text-green-500">
+                  <span className="material-symbols-outlined">chat</span>
+                </div>
+                <span className="text-xs text-slate-600 dark:text-slate-400">微信好友</span>
+              </button>
+              <button className="flex flex-col items-center gap-2" onClick={() => setShowShareModal(false)}>
+                <div className="w-12 h-12 rounded-full bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center text-emerald-500">
+                  <span className="material-symbols-outlined">data_usage</span>
+                </div>
+                <span className="text-xs text-slate-600 dark:text-slate-400">朋友圈</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Toast Notification */}
+      {showToast && (
+        <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[110] bg-black/80 text-white px-6 py-3 rounded-lg flex items-center gap-2 animate-in fade-in zoom-in duration-200">
+          <span className="material-symbols-outlined text-green-400">check_circle</span>
+          <span className="text-sm font-medium">已添加到购物车</span>
+        </div>
+      )}
     </div>
   );
 }

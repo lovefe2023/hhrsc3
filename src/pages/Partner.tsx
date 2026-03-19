@@ -39,11 +39,11 @@ export default function Partner() {
                 <p className="text-lg font-bold">¥12,450.00</p>
                 <p className="text-green-300 text-[10px] font-medium">本月 +12%</p>
               </Link>
-              <div className="bg-white/10 rounded-lg p-3 backdrop-blur-sm border border-white/10">
-                <p className="text-white/70 text-xs mb-1">推荐人数</p>
-                <p className="text-lg font-bold">48 位成员</p>
-                <p className="text-green-300 text-[10px] font-medium">新增 +3</p>
-              </div>
+              <Link to="/sales" className="bg-white/10 rounded-lg p-3 backdrop-blur-sm border border-white/10 block hover:bg-white/20 transition-colors">
+                <p className="text-white/70 text-xs mb-1">个人收益</p>
+                <p className="text-lg font-bold">¥2,180.50</p>
+                <p className="text-green-300 text-[10px] font-medium">本月 +¥320</p>
+              </Link>
             </div>
             <div className="mt-6 flex items-center justify-between">
               <div>
@@ -63,25 +63,8 @@ export default function Partner() {
         </div>
       </div>
 
-      <div className="px-4 mb-4">
-        <div className="bg-white dark:bg-slate-900 rounded-xl p-5 border border-slate-200 dark:border-slate-800 flex items-center justify-between">
-          <div>
-            <p className="text-slate-500 dark:text-slate-400 text-sm font-medium">预计分红</p>
-            <p className="text-2xl font-bold text-primary mt-1">¥2,180.50</p>
-          </div>
-          <div className="flex flex-col items-end gap-3">
-            <div className="bg-primary/10 p-3 rounded-full w-fit">
-              <span className="material-symbols-outlined text-primary">account_balance_wallet</span>
-            </div>
-            <button className="text-xs font-bold bg-primary text-white px-4 py-1.5 rounded-full shadow-sm active:opacity-90 transition-opacity">
-              立即提现
-            </button>
-          </div>
-        </div>
-      </div>
-
       <div className="px-4 mb-6">
-        <div className="relative rounded-xl overflow-hidden group cursor-pointer">
+        <Link to="/partner-package" className="relative rounded-xl overflow-hidden group cursor-pointer block">
           <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors"></div>
           <div className="absolute inset-0 flex flex-col justify-center p-6 text-white">
             <h3 className="text-xl font-bold">升级合伙人等级</h3>
@@ -92,7 +75,7 @@ export default function Partner() {
             </div>
           </div>
           <img className="w-full h-32 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHwSoYAFveQQaNFatLxrBXGb_XxSvILzcmG2MViK0wBVUoYQ-t5z2DJRLVQU8q2vqSCoFFsScxzpLcNKsQ_Je1XdzwegEt31dQBQ8o4XYfF5_YGYLH_U82fsne7fRnDsNhj8E5n206VRUsw7FwmaD4G_v5fm_bVUZEvj1fOslWP9lnjkTUBJbxK51R8qONlHiv5l7cVPOTi2dxshQTNdH-EkqS7UGO6BPIUrhfleUoebyoESMZqniorDLyItXp78TdZLus4GzuZ9w" alt="Gift Pack" />
-        </div>
+        </Link>
       </div>
 
       <div className="px-4 mb-6">
@@ -113,9 +96,8 @@ export default function Partner() {
       </div>
 
       <div className="px-4">
-        <div className="flex items-center justify-between mb-4">
+        <div className="flex items-center mb-4">
           <h2 className="text-slate-900 dark:text-slate-100 text-xl font-bold">团队统计</h2>
-          <Link to="/team" className="text-primary text-sm font-medium">查看历史</Link>
         </div>
         <div className="grid grid-cols-1 gap-4">
           <Link to="/team" className="bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 flex items-center gap-4 hover:border-primary/50 transition-colors cursor-pointer">
@@ -123,7 +105,7 @@ export default function Partner() {
               <span className="material-symbols-outlined">groups</span>
             </div>
             <div className="flex-1">
-              <p className="text-slate-500 dark:text-slate-400 text-xs font-medium uppercase tracking-wider">团队总数</p>
+              <p className="text-slate-500 dark:text-slate-400 text-xs font-medium uppercase tracking-wider">团队成员数</p>
               <p className="text-xl font-bold">324</p>
             </div>
             <div className="text-right">
@@ -131,7 +113,7 @@ export default function Partner() {
               <p className="text-slate-400 text-[10px]">总成员数</p>
             </div>
           </Link>
-          <Link to="/partner/recruit" className="bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 flex items-center gap-4 hover:border-primary/50 transition-colors cursor-pointer">
+          <Link to="/partner/new-today" className="bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 flex items-center gap-4 hover:border-primary/50 transition-colors cursor-pointer">
             <div className="size-12 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400">
               <span className="material-symbols-outlined">person_add</span>
             </div>
@@ -157,30 +139,6 @@ export default function Partner() {
               <p className="text-slate-400 text-[10px]">月增长率</p>
             </div>
           </Link>
-        </div>
-      </div>
-
-      {/* 营销素材中心 */}
-      <div className="px-4 mb-6 mt-6">
-        <div className="flex items-center justify-between mb-4">
-          <h2 className="text-slate-900 dark:text-slate-100 text-xl font-bold">营销素材</h2>
-          <Link to="/marketing" className="text-primary text-sm font-medium">全部素材</Link>
-        </div>
-        <div className="grid grid-cols-2 gap-4">
-          <div className="bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 flex flex-col items-center justify-center gap-2 cursor-pointer hover:border-primary/50 transition-colors">
-            <div className="size-10 rounded-full bg-blue-50 dark:bg-blue-900/30 flex items-center justify-center text-blue-500">
-              <span className="material-symbols-outlined">imagesmode</span>
-            </div>
-            <p className="text-sm font-bold text-slate-800 dark:text-slate-200">发圈素材</p>
-            <p className="text-[10px] text-slate-400">一键转发朋友圈</p>
-          </div>
-          <div className="bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 flex flex-col items-center justify-center gap-2 cursor-pointer hover:border-primary/50 transition-colors">
-            <div className="size-10 rounded-full bg-purple-50 dark:bg-purple-900/30 flex items-center justify-center text-purple-500">
-              <span className="material-symbols-outlined">qr_code_2</span>
-            </div>
-            <p className="text-sm font-bold text-slate-800 dark:text-slate-200">专属海报</p>
-            <p className="text-[10px] text-slate-400">生成带码海报</p>
-          </div>
         </div>
       </div>
 
